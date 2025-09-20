@@ -1,0 +1,33 @@
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; background: #0b0d10; color: #e6e8eb; font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; }
+
+#game { display: block; width: 100vw; height: 100vh; background: #111418; }
+
+#hud { position: fixed; top: 12px; left: 12px; right: 12px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; z-index: 10; }
+.hud-group { background: rgba(20,24,28,0.8); padding: 6px 10px; border: 1px solid #2a2f36; border-radius: 6px; box-shadow: 0 0 0 1px rgba(0,0,0,0.35) inset; }
+.hud-group strong { margin-left: 8px; color: #a7d0ff; }
+.hud-group.small { opacity: 0.8; font-size: 12px; }
+
+.overlay { position: fixed; inset: 0; display: grid; place-items: center; background: rgba(0,0,0,0.55); z-index: 20; }
+.overlay.hidden { display: none; }
+.panel { background: #161a20; border: 1px solid #2a2f36; border-radius: 8px; padding: 20px 24px; min-width: 280px; text-align: center; }
+.panel h2 { margin: 0 0 8px; }
+.panel p { margin: 0; opacity: 0.85; }
+
+.panel-wide { min-width: 560px; text-align: left; }
+.panel-actions { margin-top: 12px; display: flex; justify-content: flex-end; }
+.panel-actions button { background: #233043; color: #dbeafe; border: 1px solid #2a2f36; border-radius: 6px; padding: 6px 10px; cursor: pointer; }
+.panel-actions button:hover { background: #2a3b50; }
+.btn-small { background: #233043; color: #dbeafe; border: 1px solid #2a2f36; border-radius: 6px; padding: 6px 10px; cursor: pointer; }
+.btn-small:hover { background: #2a3b50; }
+
+.hint { position: fixed; left: 50%; bottom: 32px; transform: translateX(-50%); background: rgba(20,24,28,0.9); border: 1px solid #2a2f36; color: #e6e8eb; padding: 6px 10px; border-radius: 6px; z-index: 15; }
+.hint.hidden { display: none; }
+
+.form { margin-top: 8px; display: grid; gap: 10px; }
+.form-row { display: grid; grid-template-columns: 90px 1fr; align-items: center; gap: 10px; }
+.form-row label { color: #c9d5e3; }
+.form-row input, .form-row textarea { width: 100%; background: #0f141b; color: #e6e8eb; border: 1px solid #2a2f36; border-radius: 6px; padding: 6px 8px; }
+.form-row select { width: 100%; background: #0f141b; color: #e6e8eb; border: 1px solid #2a2f36; border-radius: 6px; padding: 6px 8px; }
+
+

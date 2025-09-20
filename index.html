@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>停尸馆夜班记录员 - 原型</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="hud">
+        <div class="hud-group">
+            <span>时间</span>
+            <strong id="clock">00:00</strong>
+        </div>
+        <div class="hud-group">
+            <span>异常</span>
+            <strong id="anomalyCount">0 / 3</strong>
+        </div>
+        <div class="hud-group">
+            <span>手电</span>
+            <strong id="battery">100%</strong>
+        </div>
+        <div class="hud-group">
+            <span>耐力</span>
+            <strong id="stamina">100%</strong>
+        </div>
+        <div class="hud-group small">
+            <span>操作: WASD移动、Shift短跑、F手电、Esc暂停</span>
+        </div>
+        <div class="hud-group">
+            <button id="btnRestart" class="btn-small">重新开始</button>
+        </div>
+        <div class="hud-group">
+            <span>血量</span>
+            <strong id="healthHearts">❤❤</strong>
+        </div>
+    </div>
+
+    <canvas id="game"></canvas>
+
+    <div id="narrativeBar" style="position:fixed;left:0;right:0;bottom:0;padding:12px 16px;background:rgba(15,18,22,0.9);color:#cfe3ff;font:16px system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;letter-spacing:0.3px;border-top:1px solid rgba(90,120,160,0.35);display:none;z-index:500;">
+        <!-- 剧情文本显示区 -->
+    </div>
+
+    <div id="pauseOverlay" class="overlay hidden">
+        <div class="panel">
+            <h2>已暂停</h2>
+            <p>按 Esc 继续</p>
+        </div>
+    </div>
+
+    <div id="interactHint" class="hint hidden">按 E 交互</div>
+
+    <div id="workbenchOverlay" class="overlay hidden">
+        <div class="panel panel-wide">
+            <h2>工作台</h2>
+            <form id="recordForm" class="form">
+                <div class="form-row">
+                    <label>柜位</label>
+                    <select id="formLocker"></select>
+                </div>
+                <div class="form-row">
+                    <label>异常类型</label>
+                    <select id="formType"></select>
+                </div>
+                <div class="form-row">
+                    <label>备注</label>
+                    <textarea id="formNote" rows="3" placeholder="可选填写观察细节"></textarea>
+                </div>
+                <div class="panel-actions">
+                    <button type="submit" id="btnSubmitRecord">提交异常</button>
+                    <button ty
+                    pe="button" id="btnCloseWorkbench">关闭 (E / Esc)</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="observeOverlay" class="overlay hidden">
+        <div class="panel panel-wide">
+            <h2>观察异常</h2>
+            <div class="form">
+                <div class="form-row"><label>柜位</label><input id="obsLocker" type="text" readonly></div>
+                <div class="form-row"><label>异常类型</label><input id="obsType" type="text" readonly></div>
+            </div>
+            <div class="panel-actions">
+                <button id="btnConfirmAnomaly">确认异常</button>
+                <button id="btnCloseObserve">关闭</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    
+</body>
+</html>
+
+
